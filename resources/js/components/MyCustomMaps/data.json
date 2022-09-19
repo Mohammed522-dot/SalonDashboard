@@ -1,0 +1,34 @@
+{
+  "locations": [
+    {
+      "name": "Location 1",
+      "address": "215 West Girard Avenue 19123",
+      "location": {
+        "lat": 39.9695601,
+        "lon": -75.1395161
+      },
+      "label": "200",
+      "prev": "logo.jpg"
+    },
+    {
+      "name": "Location 2",
+      "address": "5360 Old York Road 19141",
+      "location": {
+        "lat": 40.034038,
+        "lon": -75.145223
+      },
+      "label": "30",
+      "prev": "logo.jpg"
+    },
+    {
+      "name": "Location 3",
+      "address": "1350 W Girard Avenue 19123",
+      "location": {
+        "lat": 39.9713524,
+        "lon": -75.159036
+      },
+      "label": "45",
+      "prev": "logo.jpg"
+    }
+  ]
+}
