@@ -126,7 +126,7 @@ return $this->sendError($validator->errors(),['en'=>"validation Erros",'ar'=>'خ
         if($user->token_firebase)
         $this->addToTopec('broadcast',$user->token_firebase);
 
-        $success['token']= $user->createToken('Discount')->accessToken;
+        $success['token']= $user->createToken('Wow')->accessToken;
         $success['user'] =  $user;
         return $this->sendResponse($success, ['en'=>'User login successfully.','ar'=>'تم تسجيل الدخول بنجاح ']);
 

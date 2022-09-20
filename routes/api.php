@@ -103,7 +103,7 @@ Route::prefix('admin')->group(function () {
     Route::apiResource('/users',UserController::class);//->middleware('auth');
     Route::apiResource('/users.companies',UserCompaniesController::class);//->middleware('auth');
     Route::apiResource('/medicinesections',MedicinesectionController::class);
-    Route::apiResource('/medicinesections.drugs',MedicinesectionDrugsController::class);
+    Route::apiResource('/servicesTypes.services',ServicesTypeController::class);
     Route::apiResource('/categories',CategoryController::class);
     Route::apiResource('/categories.departments',CategoryDepartmentController::class);
     Route::apiResource('/departments',DepartmentController::class);
@@ -135,14 +135,16 @@ Route::prefix('admin')->group(function () {
 
     Route::apiResource('/pharmaceuticalforms',PharmaceuticalformsController::class);//['only'=>['index','show']]
     Route::apiResource('/nameScinces',NamescinceController::class);//['only'=>['index','show']]
-
+/////
+    Route::get('/service/{id}/operation',[DrugOperationController::class,'changeActive']);
+/////
     Route::get('/drugs/{id}/operation',[DrugOperationController::class,'changeActive']);
     Route::get('/companies/{id}/operation',[CompanyController::class,'changeActive']);
     Route::get('/categories/{id}/operation',[CategoryController::class,'changeActive']);
     Route::get('/departments/{id}/operation',[DepartmentController::class,'changeActive']);
     Route::get('/products/{id}/operation',[ProductController::class,'changeActive']);
     Route::get('/offers/{id}/operation',[OfferController::class,'changeActive']);
-    Route::get('/medicinesections/{id}/operation',[MedicinesectionController::class,'changeActive']);
+    Route::get('/servicestypes/{id}/operation',[MedicinesectionController::class,'changeActive']);
 
     Route::apiResource('/profile',ProfileController::class)->middleware('auth:api');
 

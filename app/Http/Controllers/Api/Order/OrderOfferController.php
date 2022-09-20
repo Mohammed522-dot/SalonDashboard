@@ -36,9 +36,8 @@ class OrderOfferController extends Controller
         $validator=$this->validate($request,[
             'note' => 'required',
             'address' => 'required',
-            'long' => 'required',
-            'lat' => 'required',
-            'offer_id' => 'required',
+             'salon_id'=> 'required',
+            'service_id' => 'required',
             'amount'=> 'required'
         ]
     ); //
@@ -46,10 +45,11 @@ class OrderOfferController extends Controller
     $order=Booking::create([
         'note'=>$request->note,
         'address'=>$request->address,
-        'long'=>$request->long,
-        'lat'=>$request->lat,
+        // 'long'=>$request->long,
+        // 'lat'=>$request->lat,
+        'salon_id'=>$request->salon_id,
         'user_id'=>auth()->user()->id,
-        'offer_id'=>$request->offer_id,
+        'service_id'=>$request->service_id,
         'amount'=>$request->amount
     ]);
 

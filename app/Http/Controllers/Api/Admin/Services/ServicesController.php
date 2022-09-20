@@ -21,8 +21,23 @@ class ServicesController extends Controller
         else
         $services=new ServiceCollection(Service::where('active',true)->get());
 
-        return $this->sendResponse($services, ['en'=>'SErvices ','ar'=>' ثائمة الادوية' ]);
+        return $this->sendResponse($services, ['en'=>'Services ','ar'=>' ثائمة الادوية' ]);
     }
 
+/**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $service=Service::findOrFail($id);
+        $service->detach();
+
+        $service->delete();
+
+        return $service;
+    }
 
 }

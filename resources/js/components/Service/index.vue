@@ -5,7 +5,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">جدول الادوية</h3>
+                <h3 class="card-title">جدول الخدمات</h3>
 
                 <div class="card-tools">
                   <button class="btn btn-primary" data-toggle="modal" @click="newModal()">اضافة <i class="fas fa-user-plus"></i></button>
@@ -54,7 +54,7 @@
                   <a href="#" > <i class="fas fa-edit" @click="updateModal(service)"> </i>
                   </a>
                     /
-                  <a href="#" @click="deleteUser(category.id)"> <i class="fas fa-trash red"> </i>
+                  <a href="#" @click="deleteUser(service.id)"> <i class="fas fa-trash red"> </i>
                   </a>
 
                   </td>
@@ -126,7 +126,7 @@
 
 
         <div class="form-group col-md-4">
-        <input v-model="form.price" type="number" name="price"  placeholder="سعر الدواء"
+        <input v-model="form.price" type="number" name="price"  placeholder="سعر الخدمة"
                class="form-control" :class="{'is-invalid':form.errors.has('price')}" >
             <has-error :form="form" field="price"></has-error>
 
@@ -288,7 +288,7 @@ import DrugCompany from './DrugCompany.vue'
                 }).then((result) => {
                     if (result.value) {
                         // send ajax requestto delete
-                        this.form.delete('api/admin/drugs/'+id).then(()=>{
+                        this.form.delete('api/admin/services/'+id).then(()=>{
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',

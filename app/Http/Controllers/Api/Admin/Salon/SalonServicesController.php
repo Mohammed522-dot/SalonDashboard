@@ -16,12 +16,12 @@ class SalonServicesController extends Controller
     {
         $salon = Company::find($salonId);
 
-        if(request()->has('admin'))
-        $services=new ServiceCollection(Service::all());
+        if(auth('api')->user()->role == "admin")
+        $services = new ServiceCollection(Service::all());
         else
-        $services=new ServiceCollection($salon->services);
-
-        return $this->sendResponse($services, ['en'=>'SErvices ','ar'=>' ثائمة الادوية' ]);
+        $services = new ServiceCollection($salon->services);
+        
+        return $this->sendResponse($services, ['en'=> 'Services','ar'=> 'ثائمة الادوية' ]);
     }
     
 
@@ -71,10 +71,12 @@ class SalonServicesController extends Controller
 
         if($services->isClean())
         return $this->sendError(['en'=>"validation Erros",'ar'=>'خطا في البيانات المرسلة'],'Sory u should specific diffrent Values',422);
-
         $services->save();
         return $services;
 
     }
+
+
+     
 
 }

@@ -144,7 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li> -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/products" class="nav-link">
               <i class="nav-icon fas fa-toilet-paper blue"></i>
               <p>
@@ -159,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 ادارة  الخدمات
               </p>
             </router-link>
-          </li>
+          </li> -->
        @endcan
 
        @can('isAdminAndUser')
