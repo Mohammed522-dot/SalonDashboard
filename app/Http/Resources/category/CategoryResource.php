@@ -22,7 +22,7 @@ class CategoryResource extends JsonResource
             'icon'=> $this->image,
             'active'=>$this->active,
             'description' => $this->description,
-            'departments'=> $this->departments, // DepartmentsResource::collection($this->departments),
+            'products'=> $this->products, // DepartmentsResource::collection($this->departments),
         ];
     }
 }

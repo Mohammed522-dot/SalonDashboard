@@ -19,9 +19,9 @@ class ProductController extends Controller
     public function index()
     {
         if(request()->has('admin'))
-        $products=Product::with('departments')->get();
+        $products=Product::with('catigories')->get();
         else
-        $products=Product::where('active',true)->with('departments')->get();
+        $products=Product::where('active',true)->with('catigories')->get();
 
         return $this->sendResponse($products, ['en'=>' Products List','ar'=>' ثائمة لمنتجات' ]);
     }

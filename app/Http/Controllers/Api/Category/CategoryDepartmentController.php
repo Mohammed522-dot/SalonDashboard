@@ -16,7 +16,7 @@ class CategoryDepartmentController extends Controller
     public function index($id)
     {
         $category= Category::findOrFail($id);
-        $department = $category->departments;
+        $department = $category->products;
         return $this->sendResponse($department, ['en'=>' Departments List','ar'=>'ثائمة الاقسام']);
     }
 

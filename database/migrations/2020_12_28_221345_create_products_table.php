@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->double('price');
             $table->string('time_service');
-
+            $table->boolean('active')->nullable()->default(true);
 
             $table->foreignId('servicetype_id')
             ->constrained('servicestypes')

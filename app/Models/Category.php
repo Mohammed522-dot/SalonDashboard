@@ -16,8 +16,8 @@ class Category extends Model
         'active'
     ];
 
-    public function departments()
+    public function products()
     {
-        return $this->hasMany(Department::class,'category_id');
+        return $this->hasMany(Product::class,'categories_id');
     }
 }

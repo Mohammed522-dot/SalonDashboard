@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Api\Order;
-
+use App\Http\Resources\Order\BookingCollection;
+use App\Http\Resources\Order\BokingResource;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Booking\Boking;
 use App\Http\Resources\Offers\OffersResources;
@@ -21,7 +22,7 @@ class OrderOfferController extends Controller
      */
     public function index()
     {
-        $offersOrders=Boking::collection(Booking::with('offer')->get());
+        $offersOrders=Boking::collection(Booking::with('order')->get());
         return $offersOrders;
     }
 
@@ -37,11 +38,13 @@ class OrderOfferController extends Controller
             'note' => 'required',
             'address' => 'required',
              'salon_id'=> 'required',
-            'service_id' => 'required',
-            'amount'=> 'required'
+             'services' => 'required:services.*.service_id|exists:services,id',
+        
         ]
     ); //
-
+   
+        $orderData = $request;
+        DB::beginTransaction();
     $order=Booking::create([
         'note'=>$request->note,
         'address'=>$request->address,
@@ -49,9 +52,13 @@ class OrderOfferController extends Controller
         // 'lat'=>$request->lat,
         'salon_id'=>$request->salon_id,
         'user_id'=>auth()->user()->id,
-        'service_id'=>$request->service_id,
+        
+        // 'service_id'=>$request->service_id,
         'amount'=>$request->amount
     ]);
+    logger(isset($orderData->services[0]['service_id'])==true?$orderData->services[0]['service_id']:"aaa");
+
+    $order->services()->sync($orderData->services);
 
     DB::commit();
 

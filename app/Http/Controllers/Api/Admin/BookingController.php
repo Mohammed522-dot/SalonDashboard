@@ -20,11 +20,11 @@ class BookingController extends Controller
     public function index()
     {
         if(auth('api')->user()->role == "admin"){         
-        $drugs=Boking::collection(Booking::orderByDesc('created_at')->get());
-        return $this->sendResponse($drugs, ['en'=>' Orders List','ar'=>' ثائمة الطلبات' ]);
+        $bookings=Boking::collection(Booking::orderByDesc('created_at')->get());
+        return $this->sendResponse($bookings, ['en'=>' Orders List','ar'=>' ثائمة الطلبات' ]);
         }else{
-            $drugs=Boking::collection(Booking::where('salon_id',auth('api')->user()->salone_id)->orderByDesc('created_at')->get());
-            return $this->sendResponse($drugs, ['en'=>' Orders List','ar'=>' ثائمة الطلبات' ]);    
+            $bookings=Boking::collection(Booking::where('salon_id',auth('api')->user()->salone_id)->orderByDesc('created_at')->get());
+            return $this->sendResponse($bookings, ['en'=>' Orders List','ar'=>' ثائمة الطلبات' ]);    
         }
 
     }

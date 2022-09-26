@@ -66,7 +66,7 @@ Route::apiResource('departments.products',DepartmentProducts::class,['only'=>['i
 Route::apiResource('medicinesection',MedicinesectionController::class);
 Route::apiResource('medicinesection.drugs',MedicinesectionDrugsController::class,['only'=>['index']]);
 
-Route::apiResource('offers',OfferController::class,['only'=>['index','show']]);
+Route::apiResource('offers',BookingController::class,['only'=>['index','show']]);
 
 
 
@@ -77,7 +77,7 @@ Route::apiResource('drugs.companies',DrugCompanyController::class,['only'=>['ind
 
 Route::apiResource('orders',OrderController::class)->middleware('auth:api');//['only'=>['index','show']]
 
-Route::apiResource('bookings',OrderOfferController::class)->middleware('auth:api');//['only'=>['index','show']]
+Route::apiResource('booking',OrderOfferController::class)->middleware('auth:api');//['only'=>['index','show']]
 
 Route::get('famusInstance',[DrugController::class,'famusInstance']);//->middleware('auth:api');//['only'=>['index','show']]
 
@@ -107,7 +107,7 @@ Route::prefix('admin')->group(function () {
     Route::apiResource('/categories',CategoryController::class);
     Route::apiResource('/categories.departments',CategoryDepartmentController::class);
     Route::apiResource('/departments',DepartmentController::class);
-    Route::apiResource('/departments.products',DepartmentProducts::class);
+    Route::apiResource('/categories.products',DepartmentProducts::class);
     Route::apiResource('/companies',CompanyController::class);
     Route::apiResource('/offers',OfferController::class);
     

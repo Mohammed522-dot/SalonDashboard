@@ -22,12 +22,9 @@
                       <th>الوصف </th>
                       <th> حالة العرض </th>
                       <th>زمن البداية</th>
-                        <th>زمن النهاية</th>
-
+                      <th>زمن النهاية</th>
                       <th>سعر العرض</th>
                       <th>لسعر الاصلي</th>
-
-
                       <th>التحكم </th>
                     </tr>
                   </thead>
@@ -70,21 +67,14 @@
 
                       <td  class="text-decoration-line-through text-xl-h4 font-weight-black red--text">
                           {{category.drug ? category.drug.price : category.product ? category.product.price  :0}}
-
-
                           </td>
-
                       <td>
                   <a href="#" > <i class="fas fa-edit" @click="updateModal(category)"> </i>
                   </a>
-                    /
                   <a href="#" @click="deleteUser(category.id)"> <i class="fas fa-trash red"> </i>
                   </a>
-
                   </td>
                   </tr>
-
-
                   </tbody>
                 </table>
               </div>
@@ -200,17 +190,13 @@
             </div>
       </div>
         </b-collapse>
-
-
-
-        <div class="w-100"></div>
          <b-collapse id="drugs-collapse">
             <div class="row">
 
             <div class="form-group col-md-6">
               <select  name="midicanSection"  v-model="medican_id" id="midicanSection"
               @change="getDrugs"
-                      class="form-control" :class="{'is-invalid':form.errors.has(`midicanSection`)}" >
+                      class="form-control" :class="{'is-llinvalid':form.errors.has(`midicanSection`)}" >
                   <option value="">اختيار قسم الدواء </option>
                   <option v-for="option in midicanSectionList" :key="option.id" :value="option.id">{{option.name}}</option>
               </select>
@@ -334,8 +320,6 @@
               <has-error :form="form" field="type"></has-error>
 
           </div> -->
-
-
 
       </div>
       <div class="modal-footer">
@@ -495,7 +479,7 @@
             getResults(page=1){
               axios.get('api/admin/offers?admin=admin&page='+page)
               .then(response=>{
-                  this.offers=response.data.data
+                  this.orders=response.data.data
               })
             },
           createCategory(){

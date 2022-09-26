@@ -21,7 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         $drugs=new OrderCollection(auth()->user()->orders);
-        return $this->sendResponse($drugs, ['en'=>' Orders List','ar'=>' ثائمة الطلبات' ]);
+        return $this->sendResponse($services, ['en'=>' Orders List','ar'=>' ثائمة الطلبات' ]);
     }
 
     /**

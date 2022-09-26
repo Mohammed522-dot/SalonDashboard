@@ -74,36 +74,32 @@
             جديدة
         </option>
         <option value="1">
-            تم تسليمها
+            تم قبوله
         </option>
-
     </select>
 </div>
-
-
-                </div>
-                </div>
-              </div>
+       </div>
+        </div>
+          </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table id="Report" class="table table-hover">
                   <thead>
                     <tr >
-                      <th > رقم الطلب</th>
+                       <th> رقم الحجز</th>
                        <th>المستخدم</th>
                        <th>رقم الهاتف</th>
                        <th>رقم هاتف اخر</th>
-                       <th>عنوان الطلب</th>
+                       <!-- <th>عنوان الطلب</th> -->
                        <th>الملاحظة</th>
-                       <th>اسم العرض</th>
-                       <th> الكمية </th>
-                       <th>الاجمالي</th>
+                       <!-- <th>اسم العرض</th> -->
+                       <!-- <th> الكمية </th> -->
+                       <!-- <th>الاجمالي</th> -->
                        <th>الحالة</th>
-                        <th>الخريطة</th>
+                        <!-- <th>الخريطة</th> -->
                       <th>التحكم </th>
                     </tr>
                   </thead>
-
                   <template>
                     <v-progress-linear
                         :active="loading"
@@ -122,11 +118,11 @@
                   <td>{{order.user_name}}</td>
                   <td>{{order.phone}}</td>
                   <td>{{order.phone}}</td>
-                  <td>{{order.address}}</td>
+                  <!-- <td>{{order.address}}</td> -->
                   <td>{{order.note}}</td>
-                  <td>{{order.offer.name}}</td>
-                  <td>{{order.amount}}</td>
-                  <td>{{order.offer.price * order.amount }}</td>
+                  <!-- <td>{{order.name}}</td> -->
+                  <!-- <td>{{order.booking_dates}}</td> -->
+                  <!-- <td>{{order.offer.price * order.amount }}</td> -->
                   <td >
                         <b-button @click="changeStatusOrder(order.id,order.status_id)" size="sm" pill :variant="order.status_id ? 'outline-danger' : 'outline-primary'">
                             {{order.status_id | statusText}}
@@ -134,12 +130,12 @@
 
                       <!-- <b-button  @click="(order.status_id >=0 ? changeStatusOrder(order.id,1):changeStatusOrder(order.id,1))" :variant="order.status_id =0 ?'danger' :'success'">{{order.status_id | statusText}}</b-button> -->
                   </td>
-
+<!-- 
                   <td>
                   <a href="maps" > <i class="fas fa-map-marker-alt" > </i>
                   </a>
 
-                  </td>
+                  </td> -->
                       <!-- <td>{{order.date_price | myDate}}</td> -->
                       <td style="text-align: center;">
                   <a href="#" > <i class="fas fa-eye" @click="showOrderDetailsDialog(order)"> </i>
@@ -160,7 +156,7 @@
               <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <pagination :data="orders"
+                    <pagination :data="orders.data"
                      @pagination-change-page="getResults" ></pagination>
                 </div>
 
@@ -188,7 +184,7 @@
           <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+    
       <th scope="col">اسم الخدمة</th>
       <th scope="col">السعر</th>
       <th scope="col">الوقت</th>
@@ -196,7 +192,7 @@
   </thead>
   <tbody>
     <tr v-for="bookingdetail in bookingDetails " :key="bookingdetail.id">
-      <th scope="row">1</th>
+     
       <td>{{ bookingdetail.name }}</td>
       <td>{{ bookingdetail.price }}</td>
       <td>{{ bookingdetail.time_service }}</td>
@@ -395,7 +391,7 @@
                 axios.get('api/admin/orders?admin=admin')
                 .then(({data})=>{
                   this.orders=data.data
-                  console.log(this.orders.data)
+                  //console.log(this.orders.data)
                     this.loading=false
                 })}
             },

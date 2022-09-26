@@ -21,7 +21,7 @@ class SalonServicesController extends Controller
         else
         $services = new ServiceCollection($salon->services);
         
-        return $this->sendResponse($services, ['en'=> 'Services','ar'=> 'ثائمة الادوية' ]);
+        return $this->sendResponse($services, ['en'=> 'Services','ar'=> 'ثائمة الا  دوية' ]);
     }
     
 
@@ -44,7 +44,7 @@ class SalonServicesController extends Controller
             'description'=>$request->description,
             'image'=>$request->icons,
             'price'=>$request->price,
-            'time_service'=>$request->time_service,
+            'time_service'=>$request->time_services,
             'servicetype_id' =>  $request->servicetype_id,
             'salons_id' => $id
         ]);

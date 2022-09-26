@@ -132,7 +132,12 @@
 
         </div>
 
-        
+        <div class="form-group col-md-4">
+
+<input v-model="form.time_services" type="text" name="time_services"  placeholder="زمن الخدمة  "
+       class="form-control" :class="{'is-invalid':form.errors.has('time_services')}" >
+    <has-error :form="form" field="time_services"></has-error>
+    </div>
         <!-- <div class="form-group col-md-4">
         <input v-model="form.count" type="number" name="count"  placeholder="عدد الدواء"
                class="form-control" :class="{'is-invalid':form.errors.has('count')}" >
@@ -194,7 +199,8 @@ import DrugCompany from './DrugCompany.vue'
                     price:'',
                     count:'',
                     icons:'',
-                    servicetype_id:'0'
+                    servicetype_id:'0',
+                    time_services:''
                 })
             }
         },

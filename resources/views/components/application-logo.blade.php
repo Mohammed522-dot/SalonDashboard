@@ -3,4 +3,4 @@
 </svg> --}}
 
 
-<img src="logo.jpg" width="200" height="10" style="background-color: blue">
+<img src="logo.png" width="200" height="10" style="">

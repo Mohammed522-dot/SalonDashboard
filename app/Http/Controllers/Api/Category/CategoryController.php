@@ -19,9 +19,9 @@ class CategoryController extends Controller
     {
 
         if(request()->has('admin'))
-        $categories=Category::with('departments')->get();
+        $categories=Category::with('products')->get();
         else
-        $categories=Category::where('active',true)->with('departments')->get();
+        $categories=Category::where('active',true)->with('products')->get();
 
 
         $categories=new CategoryCollection($categories);

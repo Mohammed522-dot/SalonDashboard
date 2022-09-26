@@ -79,7 +79,7 @@
                   <tbody>
                    <td style="text-align: center;" v-if="loading" colspan="6"> انتظر جاري التحميل ...... </td>
 
-                  <tr v-for="order in orders.data " :key="order.id" style="text-align: center;">
+                  <tr v-for="order in orders.data" :key="order.id" style="text-align: center;">
                   <td>{{order.id}}</td>
                   <td>{{order.username}}</td>
                   <td>{{order.drugs_count}}</td>

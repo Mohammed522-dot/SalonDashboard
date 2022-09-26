@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ديسكاونت</title>
+        <title>Wow</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
 
             <div class="max-w-6xl mx-auto sm:px-2 lg:px-2">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <img src="logo.jpg" width="300" height="300">
+                    <img src="logo.png" width="300" height="300">
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">

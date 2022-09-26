@@ -55,7 +55,7 @@ class CreateBookingTable extends Migration
             ->onDelete('cascade');
 
             $table->foreignId('booking_id')
-            ->constrained('salons')
+            ->constrained('bookings')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 

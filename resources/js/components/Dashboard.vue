@@ -6,7 +6,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{data.product}}</h3>
+                <h3>{{data.productc}}</h3>
 
                 <p>عدد المنتجات</p>
               </div>

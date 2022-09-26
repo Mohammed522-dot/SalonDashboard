@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Department;
-use App\Models\Drug;
+use App\Models\Service;
 use App\Models\Offer;
 use App\Models\Order;
 use App\Models\Product;
@@ -33,7 +33,7 @@ class DashboartController extends Controller
         $categories = Category::where('active',1)->count();
         $departments = Department::where('active',1)->count();
         $offers = 0;////Offer::where('active',1)->count();
-        $drugs = Drug::where('active',1)->count();
+        $drugs = Service::where('active',1)->count();
 
         }else{
             // print_r($fffsd);exit;
@@ -46,9 +46,9 @@ class DashboartController extends Controller
             
             
             $categories = Category::where('active',1)->count();
-            $departments = Department::where('active',1)->count();
+            // $departments = Department::where('active',1)->count();
             $offers = 0;//Offer::where('active',1)->count();
-            $drugs = $companyOne != null? $companyOne->drugs()->count():0; //Drug::where('active',1)->count();
+            $drugs = $companyOne != null? $companyOne->services()->count():0; //Drug::where('active',1)->count();
             // return $companyOne->drugs;
 
         }

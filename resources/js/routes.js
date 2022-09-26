@@ -16,7 +16,7 @@ let routes=[
     {path: '/nameScinces',component:require('./components/NameScinces/index.vue').default},
 
 
-    {path: '/booking',component:require('./components/Offer/order/index.vue').default},
+    {path: '/booking',component:require('./components/Offer/Order/index.vue').default},
     // {path: '/reporting',component:require('./components/Reportings').default},
     {path: '/developer',component:require('./components/developers.vue').default},
 

@@ -107,10 +107,10 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $medicines=Company::find($id);
-        $medicines->drugs()->detach();
-        $medicines->delete();
-        return $medicines;
+        $services=Company::find($id);
+        $services->services();
+        $services->delete();
+        return $services;
     }
 
     public function changeActive($id){

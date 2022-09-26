@@ -25,7 +25,7 @@ class Boking extends JsonResource
             'user_id' => $this->user_id,
             'user_name'=>$this->user->name,
             'phone' => $this->user->phone,
-            'offer'=>$this->salon,
+            'salon'=>$this->salon,
             'services'=>$this->services,
             'status_id'=>$this->status_id,
         ];

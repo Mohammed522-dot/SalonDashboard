@@ -21,7 +21,7 @@ class OfferController extends Controller
     public function index()
     {
         if(request()->has('admin'))
-        $offers= Offer::all();
+        $offers = Offer::all();
         else
         {
             $currentDate = Carbon::today()->addDay();
