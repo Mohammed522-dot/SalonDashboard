@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
 
-        if(request()->has('admin'))
+        if(auth('api')->user()->role == "admin")
         $categories=Category::with('products')->get();
         else
         $categories=Category::where('active',true)->with('products')->get();
@@ -57,7 +57,7 @@ class CategoryController extends Controller
         return Category::create([
             'name'=>$request->name,
             'description'=> $request->description,
-            'image'=> $request->icon,
+            'icon'=> $request->icon,
             'active'=>false
         ]);
 

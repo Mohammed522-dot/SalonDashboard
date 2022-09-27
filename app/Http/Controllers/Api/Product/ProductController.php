@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        if(request()->has('admin'))
+        if(auth('api')->user()->role == "admin")
         $products=Product::with('catigories')->get();
         else
         $products=Product::where('active',true)->with('catigories')->get();
@@ -54,9 +54,9 @@ class ProductController extends Controller
         ]);
 
 
-        $product->departments()->sync(
-            $request->subCategorie_id
-        );
+        // $product->departments()->sync(
+        //     $request->subCategorie_id
+        // );
 
     }
 
@@ -98,9 +98,9 @@ class ProductController extends Controller
      $product->save();
 
 
-     $product->departments()->sync(
-        $request->subCategorie_id
-    );
+            //  $product->departments()->sync(
+            //     $request->subCategorie_id
+            // );
 
 
      return $product;
